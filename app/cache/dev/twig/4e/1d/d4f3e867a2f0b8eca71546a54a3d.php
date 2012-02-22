@@ -31,8 +31,14 @@ class __TwigTemplate_4e1dd4f3e867a2f0b8eca71546a54a3d extends Twig_Template
 <ul>
 <li>Links to Registration and Forgot Password</li>
 <hr />
-<li><a href=\"#\">Forgot Your Password ?</a></li>
-<li><a href=\"#\">Register Now!</a></li>
+<li><a href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShopShopBundle_forgot"), "html", null, true);
+        echo "\">Forgot Your Password ?</a></li>
+<li><a href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShopShopBundle_register"), "html", null, true);
+        echo "\">Register Now!</a></li>
 </ul>
 ";
     }

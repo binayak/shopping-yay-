@@ -1,0 +1,1 @@
+[2012-02-22 18:22:44] request.ERROR: Symfony\Component\HttpKernel\Exception\NotFoundHttpException: No route found for "GET /ShopShopBundle_register" (uncaught exception) at /var/www/shop.com/app/cache/prod/classes.php line 4564 [] []

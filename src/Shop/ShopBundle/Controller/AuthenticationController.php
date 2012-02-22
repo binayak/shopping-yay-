@@ -19,7 +19,7 @@ class AuthenticationController extends Controller
 
     public function registerAction()
     {
-        return $this->render('ShopShopBundle:Authentication:register.html.twig');
+        return $this->render('ShopShopBundle:Authentication:registration.html.twig');
     }
 
 }

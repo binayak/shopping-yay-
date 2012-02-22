@@ -213,6 +213,6 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
 
     private function getShopShopBundle_registerRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::registerAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
+        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::registerAction',), array (), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
     }
 }
