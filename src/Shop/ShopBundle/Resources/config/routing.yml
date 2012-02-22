@@ -1,0 +1,67 @@
+# src/Shop/ShopBundle/Resources/config/routing.yml
+
+ShopShopBundle_homepage:
+    pattern: /
+    defaults: { _controller: ShopShopBundle:Page:index }
+    requirements:
+        _method: GET
+
+ShopShopBundle_about:
+    pattern: /about
+    defaults: { _controller: ShopShopBundle:Page:about }
+    requirements:
+        _method: GET
+
+ShopShopBundle_checkout:
+    pattern: /checkout
+    defaults: { _controller: ShopShopBundle:Checkout:checkout }
+    requirements:
+        _method: GET
+
+ShopShopBundle_contact:
+    pattern: /contact
+    defaults: { _controller: ShopShopBundle:Contact:contact }
+    requirements:
+        _method: GET
+
+ShopShopBundle_addProduct:
+    pattern: /addProduct
+    defaults: { _controller: ShopShopBundle:ProductAdmin:addProduct }
+    requirements:
+        _method: GET
+
+ShopShopBundle_editProduct:
+    pattern: /editProduct/{name}
+    defaults: { _controller: ShopShopBundle:ProductAdmin:editProduct }
+    requirements:
+        _method: GET
+
+ShopShopBundle_category:
+    pattern: /category
+    defaults: { _controller: ShopShopBundle:Category:category }
+    requirements:
+        _method: GET
+
+ShopShopBundle_basket:
+    pattern: /basket
+    defaults: { _controller: ShopShopBundle:Basket:basket }
+    requirements:
+        _method: GET
+
+ShopShopBundle_auth:
+    pattern: /auth
+    defaults: { _controller: ShopShopBundle:Authentication:login }
+    requirements:
+        _method: GET
+
+ShopShopBundle_forgot:
+    pattern: /forgot
+    defaults: { _controller: ShopShopBundle:Authentication:forgotPassword }
+    requirements:
+        _method: GET
+
+ShopShopBundle_register:
+    pattern: /register
+    defaults: { _controller: ShopShopBundle:Authentication:register }
+    requirements:
+        _method: GET
