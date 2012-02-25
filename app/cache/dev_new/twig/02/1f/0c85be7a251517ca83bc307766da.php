@@ -8,6 +8,7 @@ class __TwigTemplate_021f0c85be7a251517ca83bc307766da extends Twig_Template
         parent::__construct($env);
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
             'sidebar' => array($this, 'block_sidebar'),
         );
     }
@@ -23,9 +24,23 @@ class __TwigTemplate_021f0c85be7a251517ca83bc307766da extends Twig_Template
     }
 
     // line 4
-    public function block_sidebar($context, array $blocks = array())
+    public function block_stylesheets($context, array $blocks = array())
     {
         // line 5
+        echo "    ";
+        $this->displayParentBlock("stylesheets", $context, $blocks);
+        echo "
+    <link href=\"";
+        // line 6
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/shopshop/css/contactUs.css"), "html", null, true);
+        echo "\" type=\"text/css\" rel=\"stylesheet\" />
+";
+    }
+
+    // line 9
+    public function block_sidebar($context, array $blocks = array())
+    {
+        // line 10
         echo "    Sidebar content
 ";
     }

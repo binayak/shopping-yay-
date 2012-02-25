@@ -50,16 +50,16 @@ class __TwigTemplate_31be6cac7ee94f56c2e7e668a1da0a3a extends Twig_Template
                     ";
         // line 21
         $this->displayBlock('navigation', $context, $blocks);
-        // line 34
+        // line 35
         echo "                </div>
 
                 <hgroup>
                     <h2>";
-        // line 37
+        // line 38
         $this->displayBlock('blog_title', $context, $blocks);
         echo "</h2>
                     <h3>";
-        // line 38
+        // line 39
         $this->displayBlock('blog_tagline', $context, $blocks);
         echo "</h3>
                 </hgroup>
@@ -67,29 +67,29 @@ class __TwigTemplate_31be6cac7ee94f56c2e7e668a1da0a3a extends Twig_Template
 
             <section class=\"main-col\">
                 ";
-        // line 43
-        $this->displayBlock('body', $context, $blocks);
         // line 44
+        $this->displayBlock('body', $context, $blocks);
+        // line 45
         echo "            </section>
             <aside class=\"sidebar\">
                 ";
-        // line 46
-        $this->displayBlock('sidebar', $context, $blocks);
         // line 47
+        $this->displayBlock('sidebar', $context, $blocks);
+        // line 48
         echo "            </aside>
 
             <div id=\"footer\">
                 ";
-        // line 50
+        // line 51
         $this->displayBlock('footer', $context, $blocks);
-        // line 53
+        // line 54
         echo "            </div>
         </section>
 
         ";
-        // line 56
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 57
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 58
         echo "    </body>
 </html>
 ";
@@ -140,47 +140,48 @@ class __TwigTemplate_31be6cac7ee94f56c2e7e668a1da0a3a extends Twig_Template
         // line 28
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShopShopBundle_basket"), "html", null, true);
         echo "\">Basket</a></li>
-\t\t\t\t<li><a href=\"";
+                                <li><a href=\"";
         // line 29
         echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("ShopShopBundle_auth"), "html", null, true);
         echo "\">Login/Register</a></li>
+                                <li><input type=\"search\" placeholder=\"Search Product ... \" /><input type=\"submit\" value=\"Go!\"/></li>
 
                             </ul>
                         </nav>
                     ";
     }
 
-    // line 37
+    // line 38
     public function block_blog_title($context, array $blocks = array())
     {
         echo "<a href=\"#\">Shopping Yay!</a>";
     }
 
-    // line 38
+    // line 39
     public function block_blog_tagline($context, array $blocks = array())
     {
         echo "<a href=\"#\">Welcome to the most simplest shopping experience!</a>";
     }
 
-    // line 43
+    // line 44
     public function block_body($context, array $blocks = array())
     {
     }
 
-    // line 46
+    // line 47
     public function block_sidebar($context, array $blocks = array())
     {
     }
 
-    // line 50
+    // line 51
     public function block_footer($context, array $blocks = array())
     {
-        // line 51
+        // line 52
         echo "                    All Rights Reserved -<a href=\"http://en.wikipedia.org/wiki/Terms_of_service\">Terms & Conditions</a>
                 ";
     }
 
-    // line 56
+    // line 57
     public function block_javascripts($context, array $blocks = array())
     {
     }

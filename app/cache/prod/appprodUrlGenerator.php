@@ -64,7 +64,7 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 
     private function getShopShopBundle_contactRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ContactController::contactAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
+        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ContactController::contactAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/contact',  ),));
     }
 
     private function getShopShopBundle_addProductRouteInfo()
@@ -89,16 +89,16 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 
     private function getShopShopBundle_authRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::loginAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/auth',  ),));
+        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::loginAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/auth',  ),));
     }
 
     private function getShopShopBundle_forgotRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::forgotPasswordAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/forgot',  ),));
+        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ForgotPasswordController::forgotAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/forgot',  ),));
     }
 
     private function getShopShopBundle_registerRouteInfo()
     {
-        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::registerAction',), array (  '_method' => 'GET',), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
+        return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\RegisterCustomerController::registerAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
     }
 }

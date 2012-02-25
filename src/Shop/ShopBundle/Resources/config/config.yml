@@ -1,0 +1,5 @@
+#src/Shop/ShopBundle/Resources/config/config.yml
+
+parameters:
+    # Shopper contact email address
+    shop_shop.emails.contact_email: rosh.pundit@gmail.com

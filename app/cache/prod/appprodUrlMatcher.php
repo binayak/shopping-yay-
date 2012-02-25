@@ -60,8 +60,8 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         // ShopShopBundle_contact
         if ($pathinfo === '/contact') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_ShopShopBundle_contact;
             }
             return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ContactController::contactAction',  '_route' => 'ShopShopBundle_contact',);
@@ -110,8 +110,8 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         // ShopShopBundle_auth
         if ($pathinfo === '/auth') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_ShopShopBundle_auth;
             }
             return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::loginAction',  '_route' => 'ShopShopBundle_auth',);
@@ -120,21 +120,21 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
 
         // ShopShopBundle_forgot
         if ($pathinfo === '/forgot') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_ShopShopBundle_forgot;
             }
-            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::forgotPasswordAction',  '_route' => 'ShopShopBundle_forgot',);
+            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ForgotPasswordController::forgotAction',  '_route' => 'ShopShopBundle_forgot',);
         }
         not_ShopShopBundle_forgot:
 
         // ShopShopBundle_register
         if ($pathinfo === '/register') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
                 goto not_ShopShopBundle_register;
             }
-            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::registerAction',  '_route' => 'ShopShopBundle_register',);
+            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\RegisterCustomerController::registerAction',  '_route' => 'ShopShopBundle_register',);
         }
         not_ShopShopBundle_register:
 

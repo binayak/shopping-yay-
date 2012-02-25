@@ -32,11 +32,14 @@
     <parameter key="database_user">root</parameter>
     <parameter key="database_password"></parameter>
     <parameter key="mailer_transport">smtp</parameter>
+    <parameter key="mailer_encryption"></parameter>
+    <parameter key="mailer_auth_mode"></parameter>
     <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user"></parameter>
     <parameter key="mailer_password"></parameter>
     <parameter key="locale">en</parameter>
     <parameter key="secret">3fdce35d8cb531c1aacecd84e03b1cfbde2c1ab9</parameter>
+    <parameter key="shop_shop.emails.contact_email">rosh.pundit@gmail.com</parameter>
     <parameter key="router_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\RouterListener</parameter>
     <parameter key="controller_resolver.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerResolver</parameter>
     <parameter key="controller_name_converter.class">Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser</parameter>
@@ -264,12 +267,12 @@
     <parameter key="swiftmailer.plugin.antiflood.sleep">0</parameter>
     <parameter key="swiftmailer.data_collector.class">Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector</parameter>
     <parameter key="swiftmailer.transport.smtp.class">Swift_Transport_EsmtpTransport</parameter>
-    <parameter key="swiftmailer.transport.smtp.encryption">null</parameter>
-    <parameter key="swiftmailer.transport.smtp.port">25</parameter>
-    <parameter key="swiftmailer.transport.smtp.host">localhost</parameter>
-    <parameter key="swiftmailer.transport.smtp.username"></parameter>
-    <parameter key="swiftmailer.transport.smtp.password"></parameter>
-    <parameter key="swiftmailer.transport.smtp.auth_mode">null</parameter>
+    <parameter key="swiftmailer.transport.smtp.encryption">ssl</parameter>
+    <parameter key="swiftmailer.transport.smtp.port">465</parameter>
+    <parameter key="swiftmailer.transport.smtp.host">smtp.gmail.com</parameter>
+    <parameter key="swiftmailer.transport.smtp.username">rosh.pundit@gmail.com</parameter>
+    <parameter key="swiftmailer.transport.smtp.password">webengineering</parameter>
+    <parameter key="swiftmailer.transport.smtp.auth_mode">login</parameter>
     <parameter key="swiftmailer.spool.enabled">false</parameter>
     <parameter key="swiftmailer.sender_address">null</parameter>
     <parameter key="swiftmailer.single_address">null</parameter>
@@ -1598,7 +1601,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="ShopShopBundle">Shop\ShopBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service">
@@ -1629,7 +1634,23 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false"/>
+              <service class="Doctrine\ORM\Mapping\Driver\DriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service">
+                        <service class="Symfony\Bridge\Doctrine\Annotations\IndexedReader" public="false">
+                          <argument type="service" id="annotation_reader"/>
+                        </service>
+                      </argument>
+                      <argument type="collection">
+                        <argument>/var/www/shop.com/src/Shop/ShopBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Shop\ShopBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2341,22 +2362,22 @@
         <service class="Swift_Events_SimpleEventDispatcher" public="false"/>
       </argument>
       <call method="setHost">
-        <argument>localhost</argument>
+        <argument>smtp.gmail.com</argument>
       </call>
       <call method="setPort">
-        <argument>25</argument>
+        <argument>465</argument>
       </call>
       <call method="setEncryption">
-        <argument>null</argument>
+        <argument>ssl</argument>
       </call>
       <call method="setUsername">
-        <argument></argument>
+        <argument>rosh.pundit@gmail.com</argument>
       </call>
       <call method="setPassword">
-        <argument></argument>
+        <argument>webengineering</argument>
       </call>
       <call method="setAuthMode">
-        <argument>null</argument>
+        <argument>login</argument>
       </call>
       <call method="registerPlugin">
         <argument type="service" id="swiftmailer.plugin.messagelogger"/>

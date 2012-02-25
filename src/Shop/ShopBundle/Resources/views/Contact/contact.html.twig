@@ -2,5 +2,24 @@
 {% extends 'ShopShopBundle::layout.html.twig' %}
 
 {% block body %}
-    Contact Page
+
+  <header>
+    <h1>Contact Customer Support</h1>
+  </header>
+{% if app.session.hasFlash('shop-notice') %}
+	<div class="shop-notice">
+	  {{ app.session.flash('shop-notice') }}
+	</div>
+{% endif %}
+  <form action "{{ path('ShopShopBundle_contact')  }}" method="post" {{ form_enctype(form) }} class="blogger">
+   
+  {{ form_row(form.name) }}
+  {{ form_row(form.email) }}
+  {{ form_row(form.subject)  }}
+  {{ form_row(form.body) }}
+  {{ form_rest(form)  }}
+
+  <input type="submit" value = "Submit" />
+ </form>
+ 
 {% endblock %}

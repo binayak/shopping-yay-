@@ -62,6 +62,7 @@
   'SwiftmailerBundle:Collector:swiftmailer.html.twig' => '/var/www/shop.com/vendor/symfony/src/Symfony/Bundle/SwiftmailerBundle/Resources/views/Collector/swiftmailer.html.twig',
   'DoctrineBundle:Collector:db.html.twig' => '/var/www/shop.com/vendor/symfony/src/Symfony/Bundle/DoctrineBundle/Resources/views/Collector/db.html.twig',
   'ShopShopBundle:Contact:contact.html.twig' => '/var/www/shop.com/src/Shop/ShopBundle/Resources/views/Contact/contact.html.twig',
+  'ShopShopBundle:Contact:contactEmail.txt.twig' => '/var/www/shop.com/src/Shop/ShopBundle/Resources/views/Contact/contactEmail.txt.twig',
   'ShopShopBundle:ProductAdmin:addProduct.html.twig' => '/var/www/shop.com/src/Shop/ShopBundle/Resources/views/ProductAdmin/addProduct.html.twig',
   'ShopShopBundle:ProductAdmin:editProduct.html.twig' => '/var/www/shop.com/src/Shop/ShopBundle/Resources/views/ProductAdmin/editProduct.html.twig',
   'ShopShopBundle:Basket:basket.html.twig' => '/var/www/shop.com/src/Shop/ShopBundle/Resources/views/Basket/basket.html.twig',

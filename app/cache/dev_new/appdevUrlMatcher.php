@@ -234,19 +234,14 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 $allow = array_merge($allow, array('GET', 'HEAD'));
                 goto not_ShopShopBundle_forgot;
             }
-            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::forgotPasswordAction',  '_route' => 'ShopShopBundle_forgot',);
+            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\ForgotPasswordController::forgotAction',  '_route' => 'ShopShopBundle_forgot',);
         }
         not_ShopShopBundle_forgot:
 
         // ShopShopBundle_register
         if ($pathinfo === '/register') {
-            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
-                $allow = array_merge($allow, array('GET', 'HEAD'));
-                goto not_ShopShopBundle_register;
-            }
-            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\AuthenticationController::registerAction',  '_route' => 'ShopShopBundle_register',);
+            return array (  '_controller' => 'Shop\\ShopBundle\\Controller\\RegisterCustomerController::registerAction',  '_route' => 'ShopShopBundle_register',);
         }
-        not_ShopShopBundle_register:
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }

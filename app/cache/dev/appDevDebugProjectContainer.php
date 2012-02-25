@@ -235,18 +235,21 @@ class appDevDebugProjectContainer extends Container
         $c = new \Doctrine\Common\Cache\ArrayCache();
         $c->setNamespace('sf2orm_default_6b3af6f110cebc1ce5fcf85495c3a280');
 
-        $d = new \Doctrine\ORM\Configuration();
-        $d->setEntityNamespaces(array());
-        $d->setMetadataCacheImpl($a);
-        $d->setQueryCacheImpl($b);
-        $d->setResultCacheImpl($c);
-        $d->setMetadataDriverImpl(new \Doctrine\ORM\Mapping\Driver\DriverChain());
-        $d->setProxyDir('/var/www/shop.com/app/cache/dev/doctrine/orm/Proxies');
-        $d->setProxyNamespace('Proxies');
-        $d->setAutoGenerateProxyClasses(true);
-        $d->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $d = new \Doctrine\ORM\Mapping\Driver\DriverChain();
+        $d->addDriver(new \Doctrine\ORM\Mapping\Driver\AnnotationDriver(new \Symfony\Bridge\Doctrine\Annotations\IndexedReader($this->get('annotation_reader')), array(0 => '/var/www/shop.com/src/Shop/ShopBundle/Entity')), 'Shop\\ShopBundle\\Entity');
 
-        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $d);
+        $e = new \Doctrine\ORM\Configuration();
+        $e->setEntityNamespaces(array('ShopShopBundle' => 'Shop\\ShopBundle\\Entity'));
+        $e->setMetadataCacheImpl($a);
+        $e->setQueryCacheImpl($b);
+        $e->setResultCacheImpl($c);
+        $e->setMetadataDriverImpl($d);
+        $e->setProxyDir('/var/www/shop.com/app/cache/dev/doctrine/orm/Proxies');
+        $e->setProxyNamespace('Proxies');
+        $e->setAutoGenerateProxyClasses(true);
+        $e->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+
+        return $this->services['doctrine.orm.default_entity_manager'] = call_user_func(array('Doctrine\\ORM\\EntityManager', 'create'), $this->get('doctrine.dbal.default_connection'), $e);
     }
 
     /**
@@ -1453,12 +1456,12 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['swiftmailer.transport'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => new \Swift_Transport_Esmtp_AuthHandler(array(0 => new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator(), 1 => new \Swift_Transport_Esmtp_Auth_LoginAuthenticator(), 2 => new \Swift_Transport_Esmtp_Auth_PlainAuthenticator()))), new \Swift_Events_SimpleEventDispatcher());
 
-        $instance->setHost('localhost');
-        $instance->setPort(25);
-        $instance->setEncryption(NULL);
-        $instance->setUsername('');
-        $instance->setPassword('');
-        $instance->setAuthMode(NULL);
+        $instance->setHost('smtp.gmail.com');
+        $instance->setPort(465);
+        $instance->setEncryption('ssl');
+        $instance->setUsername('rosh.pundit@gmail.com');
+        $instance->setPassword('webengineering');
+        $instance->setAuthMode('login');
         $instance->registerPlugin($this->get('swiftmailer.plugin.messagelogger'));
 
         return $instance;
@@ -2137,11 +2140,14 @@ class appDevDebugProjectContainer extends Container
             'database_user' => 'root',
             'database_password' => '',
             'mailer_transport' => 'smtp',
+            'mailer_encryption' => '',
+            'mailer_auth_mode' => '',
             'mailer_host' => 'localhost',
             'mailer_user' => '',
             'mailer_password' => '',
             'locale' => 'en',
             'secret' => '3fdce35d8cb531c1aacecd84e03b1cfbde2c1ab9',
+            'shop_shop.emails.contact_email' => 'rosh.pundit@gmail.com',
             'router_listener.class' => 'Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener',
             'controller_resolver.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerResolver',
             'controller_name_converter.class' => 'Symfony\\Bundle\\FrameworkBundle\\Controller\\ControllerNameParser',
@@ -2373,12 +2379,12 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.plugin.antiflood.sleep' => 0,
             'swiftmailer.data_collector.class' => 'Symfony\\Bundle\\SwiftmailerBundle\\DataCollector\\MessageDataCollector',
             'swiftmailer.transport.smtp.class' => 'Swift_Transport_EsmtpTransport',
-            'swiftmailer.transport.smtp.encryption' => NULL,
-            'swiftmailer.transport.smtp.port' => 25,
-            'swiftmailer.transport.smtp.host' => 'localhost',
-            'swiftmailer.transport.smtp.username' => '',
-            'swiftmailer.transport.smtp.password' => '',
-            'swiftmailer.transport.smtp.auth_mode' => NULL,
+            'swiftmailer.transport.smtp.encryption' => 'ssl',
+            'swiftmailer.transport.smtp.port' => 465,
+            'swiftmailer.transport.smtp.host' => 'smtp.gmail.com',
+            'swiftmailer.transport.smtp.username' => 'rosh.pundit@gmail.com',
+            'swiftmailer.transport.smtp.password' => 'webengineering',
+            'swiftmailer.transport.smtp.auth_mode' => 'login',
             'swiftmailer.spool.enabled' => false,
             'swiftmailer.sender_address' => NULL,
             'swiftmailer.single_address' => NULL,

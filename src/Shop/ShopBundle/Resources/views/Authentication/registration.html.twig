@@ -2,5 +2,22 @@
 {% extends 'ShopShopBundle::layout.html.twig' %}
 
 {% block body %}
-    registration
+	<header>
+		<h1>Register Yourself!</h1>
+	</header>
+
+<form action="{{ path('ShopShopBundle_register') }}" method="post" {{ form_enctype(form) }} class ="#">
+		{{ form_errors(form)  }}
+
+		{{ form_row(form.name)  }}
+		{{ form_row(form.address) }}
+		{{ form_row(form.email) }}
+		{{ form_row(form.password) }}
+		{{ form_row(form.confirmPassword) }}
+
+		{{ form_rest(form) }}
+
+		<input type = "submit" value="Register Me!" />
+
+	</form>
 {% endblock %}

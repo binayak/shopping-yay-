@@ -1,13 +1,30 @@
 {#src/Shop/ShopBundle/Resources/views/Page/login.html.twig #}
 {% extends 'ShopShopBundle::layout.html.twig' %}
 
+{% block title %}Sign In{% endblock %}
+
 {% block body %}
-    Login Page and Form
+	<header>
+		<h1>Sign In</h1>
+	</header>
+
+	<form action="#" method="post" {{ form_enctype(form) }} class="#">
+		{{ form_errors(form) }}
+
+		{{ form_row(form.email)  }}
+		{{ form_row(form.password) }}
+
+		{{ form_rest(form) }}
+
+		<input type="submit" value="Sign In"/>
+
+	</form>
+
 <hr />
+<br />
 <ul>
-<li>Links to Registration and Forgot Password</li>
-<hr />
-<li><a href="{{ path('ShopShopBundle_forgot') }}">Forgot Your Password ?</a></li>
-<li><a href="{{ path('ShopShopBundle_register') }}">Register Now!</a></li>
+<li><u><a href="{{ path('ShopShopBundle_forgot') }}">Forgot Your Password ?</a></u></li>
+<br />
+<li><u><a href="{{ path('ShopShopBundle_register') }}">Register Now!</a></u></li>
 </ul>
 {% endblock %}
