@@ -65,3 +65,10 @@ ShopShopBundle_register:
     defaults: { _controller: ShopShopBundle:RegisterCustomer:register }
     requirements:
         _method: GET|POST
+
+ShopShopBundle_thankyou:
+    pattern: /thankyou/{page}
+    defaults: { _controller: ShopShopBundle:Page:thankyou, page: 0 }
+    requirements:
+        _method: GET
+        page: \d+

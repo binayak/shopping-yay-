@@ -36,34 +36,36 @@ class __TwigTemplate_2ee43471779fc014f143a4ac18415ca9 extends Twig_Template
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderEnctype($this->getContext($context, "form"));
         echo " class =\"#\">
+\t\t
 \t\t";
-        // line 10
+        // line 11
         echo $this->env->getExtension('form')->renderErrors($this->getContext($context, "form"));
         echo "
 
 \t\t";
-        // line 12
+        // line 13
         echo $this->env->getExtension('form')->renderRow($this->getAttribute($this->getContext($context, "form"), "name"));
         echo "
 \t\t";
-        // line 13
+        // line 14
         echo $this->env->getExtension('form')->renderRow($this->getAttribute($this->getContext($context, "form"), "address"));
         echo "
 \t\t";
-        // line 14
+        // line 15
         echo $this->env->getExtension('form')->renderRow($this->getAttribute($this->getContext($context, "form"), "email"));
         echo "
 \t\t";
-        // line 15
+        // line 16
         echo $this->env->getExtension('form')->renderRow($this->getAttribute($this->getContext($context, "form"), "password"));
         echo "
 \t\t";
-        // line 16
+        // line 17
         echo $this->env->getExtension('form')->renderRow($this->getAttribute($this->getContext($context, "form"), "confirmPassword"));
         echo "
-
+\t\t
+\t\t\t\t
 \t\t";
-        // line 18
+        // line 20
         echo $this->env->getExtension('form')->renderRest($this->getContext($context, "form"));
         echo "
 

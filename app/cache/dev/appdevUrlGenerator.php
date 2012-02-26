@@ -43,6 +43,7 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
        'ShopShopBundle_auth' => true,
        'ShopShopBundle_forgot' => true,
        'ShopShopBundle_register' => true,
+       'ShopShopBundle_thankyou' => true,
     );
 
     /**
@@ -214,5 +215,10 @@ class appdevUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerato
     private function getShopShopBundle_registerRouteInfo()
     {
         return array(array (), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\RegisterCustomerController::registerAction',), array (  '_method' => 'GET|POST',), array (  0 =>   array (    0 => 'text',    1 => '/register',  ),));
+    }
+
+    private function getShopShopBundle_thankyouRouteInfo()
+    {
+        return array(array (  0 => 'page',), array (  '_controller' => 'Shop\\ShopBundle\\Controller\\PageController::thankyouAction',  'page' => 0,), array (  '_method' => 'GET',  'page' => '\\d+',), array (  0 =>   array (    0 => 'variable',    1 => '/',    2 => '\\d+',    3 => 'page',  ),  1 =>   array (    0 => 'text',    1 => '/thankyou',  ),));
     }
 }

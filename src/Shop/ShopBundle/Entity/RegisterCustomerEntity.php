@@ -3,66 +3,213 @@
 
 namespace Shop\ShopBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+	* @ORM\Entity
+*/
 class RegisterCustomerEntity
 {
-	protected $name;
 
+ /**
+	 *@ORM\Id
+	 *@ORM\Column(type="integer")
+	 *@ORM\GeneratedValue(strategy="AUTO")
+*/
+	 protected $id;
+
+
+	/**
+	*@ORM\Column(type="string")
+	*/
+	protected $name;
+	
+	/**
+	* @ORM\Column(type="string")
+	*/
 	protected $address;
 
+	/**
+	*@ORM\Column(name="email_address",unique="true")
+	 */
 	protected $email;
 
+	/**
+	* @ORM\Column(type="string")
+	*/
 	protected $password;
 
+	/**
+	* @ORM\Column(type="string")
+	*/
 	protected $confirmPassword;
 
-	public function getName()
+	/**
+	* @ORM\Column(type="datetime")
+	*/
+	protected $created;
+
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	protected $validated;
+
+	public function __construct()
 	{
-		return $this->name;
+		$this->setCreated(new \DateTime());
+		$this->setValidated('false');
 	}
 
-	public function setName($name)
-	{
-		$this->name = $name ;
-	}
 
-	public function getAddress()
-	{
-		return $this->address;
-	}
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
-	public function setAddress($address)
-	{
-		$this->address =$address ;
-	}
+    /**
+     * Set created
+     *
+     * @param datetime $created
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
 
-	public function getEmail()
-	{
-		return $this->email;
-	}
+    /**
+     * Get created
+     *
+     * @return datetime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
 
-	public function setEmail($email)
-	{
-		$this->email = $email ;
-	}
+    /**
+     * Set name
+     *
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 
-	public function getPassword()
-	{
-		return $this->password;
-	}
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-	public function setPassword($password)
-	{
-		$this->password = $password ;
-	}
+    /**
+     * Set address
+     *
+     * @param string $address
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+    }
 
-	public function getConfirmPassword()
-	{
-		return $this->confirmPassword;
-	}
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
 
-	public function setConfirmPassword($confirmPassword)
-	{
-		$this->confirmPassword = $confirmPassword ;
-	}
+    /**
+     * Set email
+     *
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string 
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Set confirmPassword
+     *
+     * @param string $confirmPassword
+     */
+    public function setConfirmPassword($confirmPassword)
+    {
+        $this->confirmPassword = $confirmPassword;
+    }
+
+    /**
+     * Get confirmPassword
+     *
+     * @return string 
+     */
+    public function getConfirmPassword()
+    {
+        return $this->confirmPassword;
+    }
+
+    /**
+     * Set validated
+     *
+     * @param boolean $validated
+     */
+    public function setValidated($validated)
+    {
+        $this->validated = $validated;
+    }
+
+    /**
+     * Get validated
+     *
+     * @return boolean 
+     */
+    public function getValidated()
+    {
+        return $this->validated;
+    }
+
+
 }
-

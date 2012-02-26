@@ -3,3 +3,6 @@
 parameters:
     # Shopper contact email address
     shop_shop.emails.contact_email: rosh.pundit@gmail.com
+    # Shopper verification email address
+    shop_shop.emails.verify_email: rosh.pundit@gmail.com
+

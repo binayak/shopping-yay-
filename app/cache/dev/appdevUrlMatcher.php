@@ -248,6 +248,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
         not_ShopShopBundle_register:
 
+        // ShopShopBundle_thankyou
+        if (0 === strpos($pathinfo, '/thankyou') && preg_match('#^/thankyou(?:/(?P<page>\\d+))?$#xs', $pathinfo, $matches)) {
+            if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'HEAD'));
+                goto not_ShopShopBundle_thankyou;
+            }
+            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Shop\\ShopBundle\\Controller\\PageController::thankyouAction',  'page' => 0,)), array('_route' => 'ShopShopBundle_thankyou'));
+        }
+        not_ShopShopBundle_thankyou:
+
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
     }
 }

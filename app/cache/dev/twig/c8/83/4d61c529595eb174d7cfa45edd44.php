@@ -26,7 +26,7 @@ class __TwigTemplate_c8834d61c529595eb174d7cfa45edd44 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 5
-        echo "    Thank You!!
+        echo "    Thank You, for registering with Shop.com. Please check your email for verification!!
 ";
     }
 
